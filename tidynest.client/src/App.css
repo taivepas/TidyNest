@@ -4,4 +4,8 @@
 
 .app-shell {
   min-height: 100vh;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  padding: var(--tn-space-6);
 }
