@@ -1,19 +1,18 @@
 import type { DashboardData } from '../types/dashboard';
-import { dashboardMockData } from './dashboardMockData';
 
-/**
- * Mock async API for fetching dashboard data.
- *
- * This serves as the single typed boundary for the dashboard feature.
- * When a real backend is introduced, keep this function's return type
- * stable and evolve {@link DashboardData} additively so that UI
- * components continue to work without large refactors.
- *
- * The small timeout simulates a real network roundtrip so loading
- * states and transitions can be exercised.
- */
+async function getJson<T>(url: string): Promise<T> {
+  const response = await fetch(url);
+  if (!response.ok) throw new Error(`Dashboard API request failed: ${response.status}`);
+  return (await response.json()) as T;
+}
+
 export async function getDashboardData(): Promise<DashboardData> {
-  return new Promise((resolve) => {
-    setTimeout(() => resolve(dashboardMockData), 250);
-  });
+  const [summary, rooms, upcomingTasks, familyActivity] = await Promise.all([
+    getJson<DashboardData['summary']>('/api/summary'),
+    getJson<DashboardData['rooms']>('/api/rooms'),
+    getJson<DashboardData['upcomingTasks']>('/api/tasks/upcoming'),
+    getJson<DashboardData['familyActivity']>('/api/activity/recent'),
+  ]);
+
+  return { summary, rooms, upcomingTasks, familyActivity };
 }

@@ -29,7 +29,7 @@ export function useDashboardData(): UseDashboardDataResult {
         if (!isActive) return;
 
         const normalizedError =
-          error instanceof Error ? error : new Error('Failed to load dashboard data');
+          error instanceof Error ? error : new Error('Failed to load dashboard data from API');
 
         setState({ data: null, isLoading: false, error: normalizedError });
       });

@@ -59,6 +59,17 @@ From repository root:
 dotnet build TidyNest.slnx
 ```
 
+### Reusable Home Data APIs (mocked backend data)
+
+Backend endpoints currently return mocked JSON responses directly from server handlers:
+
+- GET /api/summary
+- GET /api/rooms
+- GET /api/tasks/upcoming
+- GET /api/activity/recent
+
+These contracts are intended to remain stable as we later swap in real persistence-backed data sources.
+
 ## RPI Workflow (OpenCode)
 
 Primary command flow:
