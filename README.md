@@ -70,6 +70,9 @@ Backend endpoints currently return mocked JSON responses directly from server ha
 
 These contracts are intended to remain stable as we later swap in real persistence-backed data sources.
 
+Implementation note:
+- Each `/api/*` endpoint is implemented as a dedicated handler file under `TidyNest.Server/Features/HomeData/Handlers/`.
+
 ## RPI Workflow (OpenCode)
 
 Primary command flow:
