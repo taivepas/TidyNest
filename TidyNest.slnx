@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="tidynest.client/tidynest.client.esproj">
+    <Build />
+    <Deploy />
+  </Project>
+  <Project Path="TidyNest.Server/TidyNest.Server.csproj" />
+</Solution>
