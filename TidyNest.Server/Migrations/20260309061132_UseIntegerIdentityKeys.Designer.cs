@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TidyNest.Server.Data;
 
@@ -11,9 +12,11 @@ using TidyNest.Server.Data;
 namespace TidyNest.Server.Migrations
 {
     [DbContext(typeof(TidyNestDbContext))]
-    partial class TidyNestDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260309061132_UseIntegerIdentityKeys")]
+    partial class UseIntegerIdentityKeys
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -39,6 +42,11 @@ namespace TidyNest.Server.Migrations
                         .IsRequired()
                         .HasMaxLength(1000)
                         .HasColumnType("nvarchar(1000)");
+
+                    b.Property<string>("ExternalId")
+                        .IsRequired()
+                        .HasMaxLength(64)
+                        .HasColumnType("nvarchar(64)");
 
                     b.Property<DateTimeOffset>("TimestampUtc")
                         .HasColumnType("datetimeoffset");
@@ -66,6 +74,11 @@ namespace TidyNest.Server.Migrations
 
                     b.Property<DateTimeOffset>("DueAtUtc")
                         .HasColumnType("datetimeoffset");
+
+                    b.Property<string>("ExternalId")
+                        .IsRequired()
+                        .HasMaxLength(64)
+                        .HasColumnType("nvarchar(64)");
 
                     b.Property<bool>("IsCompleted")
                         .HasColumnType("bit");
@@ -95,6 +108,11 @@ namespace TidyNest.Server.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("ExternalId")
+                        .IsRequired()
+                        .HasMaxLength(64)
+                        .HasColumnType("nvarchar(64)");
 
                     b.Property<DateTimeOffset>("LastCleanedAtUtc")
                         .HasColumnType("datetimeoffset");

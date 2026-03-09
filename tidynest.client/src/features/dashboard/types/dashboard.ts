@@ -12,7 +12,8 @@ export type SummaryMetrics = {
 export type RoomCleanlinessStatus = 'clean' | 'needs_tidy' | 'deep_clean';
 
 export type RoomStatus = {
-  id: string;
+  /** Stable numeric identifier for the room. */
+  id: number;
   name: string;
   status: RoomCleanlinessStatus;
   /** ISO timestamp string for the last time this room was cleaned. */
@@ -20,18 +21,21 @@ export type RoomStatus = {
 };
 
 export type HouseholdTask = {
-  id: string;
+  /** Stable numeric identifier for the task. */
+  id: number;
   title: string;
   /** ISO timestamp string indicating when the task is due. */
   dueAt: string;
-  roomId?: string;
+  /** Optional numeric room identifier this task is associated with. */
+  roomId: number | null;
   isRecurring: boolean;
 };
 
 export type ActivityType = 'task_completed' | 'task_added' | 'note';
 
 export type ActivityItem = {
-  id: string;
+  /** Stable numeric identifier for the activity item. */
+  id: number;
   type: ActivityType;
   /** ISO timestamp string for when the activity occurred. */
   timestamp: string;

@@ -2,9 +2,10 @@ namespace TidyNest.Server.Data.Entities;
 
 public sealed class ActivityEntity
 {
-    public string Id { get; set; } = default!;
+	// Surrogate primary key used by EF and exposed via API
+	public int Id { get; set; }
 
-    public string Type { get; set; } = default!;
+	public string Type { get; set; } = default!;
 
     public DateTimeOffset TimestampUtc { get; set; }
 

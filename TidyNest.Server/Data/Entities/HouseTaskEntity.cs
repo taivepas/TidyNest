@@ -2,13 +2,14 @@ namespace TidyNest.Server.Data.Entities;
 
 public sealed class HouseTaskEntity
 {
-    public string Id { get; set; } = default!;
+	// Surrogate primary key used by EF and exposed via API
+	public int Id { get; set; }
 
     public string Title { get; set; } = default!;
 
-    public DateTimeOffset DueAtUtc { get; set; }
+	public DateTimeOffset DueAtUtc { get; set; }
 
-    public string? RoomId { get; set; }
+	public int? RoomId { get; set; }
 
     public RoomEntity? Room { get; set; }
 

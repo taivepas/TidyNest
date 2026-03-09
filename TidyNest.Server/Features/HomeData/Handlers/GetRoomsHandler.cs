@@ -8,13 +8,13 @@ public static class GetRoomsHandler
 {
     public static async Task<IResult> Handle(TidyNestDbContext dbContext, CancellationToken cancellationToken)
     {
-        var rooms = await dbContext.Rooms
-            .AsNoTracking()
-            .OrderBy(r => r.Name)
-            .Select(r => new RoomStatusResponse(
-                r.Id,
-                r.Name,
-                r.Status,
+		var rooms = await dbContext.Rooms
+			.AsNoTracking()
+			.OrderBy(r => r.Name)
+			.Select(r => new RoomStatusResponse(
+				r.Id,
+				r.Name,
+				r.Status,
                 r.LastCleanedAtUtc.ToString("O")))
             .ToListAsync(cancellationToken);
 

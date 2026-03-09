@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TidyNest.Server.Data;
 
@@ -11,9 +12,11 @@ using TidyNest.Server.Data;
 namespace TidyNest.Server.Migrations
 {
     [DbContext(typeof(TidyNestDbContext))]
-    partial class TidyNestDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260309061843_RemoveExternalIdsUseNumericApiIds")]
+    partial class RemoveExternalIdsUseNumericApiIds
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
