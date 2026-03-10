@@ -7,21 +7,21 @@ public sealed record DashboardSummaryResponse(
     int WeeklyProgressPercent);
 
 public sealed record RoomStatusResponse(
-    string Id,
-    string Name,
-    string Status,
-    string LastCleanedAt);
+	int Id,
+	string Name,
+	string Status,
+	string LastCleanedAt);
 
 public sealed record UpcomingTaskResponse(
-    string Id,
-    string Title,
-    string DueAt,
-    string? RoomId,
-    bool IsRecurring);
+	int Id,
+	string Title,
+	string DueAt,
+	int? RoomId,
+	bool IsRecurring);
 
 public sealed record ActivityItemResponse(
-    string Id,
-    string Type,
+	int Id,
+	string Type,
     string Timestamp,
     string Description,
     string Actor);

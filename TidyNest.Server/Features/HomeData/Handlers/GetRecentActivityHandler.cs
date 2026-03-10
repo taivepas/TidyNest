@@ -1,14 +1,25 @@
+using Microsoft.EntityFrameworkCore;
+using TidyNest.Server.Data;
 using TidyNest.Server.Features.HomeData;
 
 namespace TidyNest.Server.Features.HomeData.Handlers;
 
 public static class GetRecentActivityHandler
 {
-    public static Task<IResult> Handle()
-        => Task.FromResult<IResult>(Results.Ok(new[]
-        {
-            new ActivityItemResponse("activity-1", "task_completed", "2026-03-07T08:15:00Z", "Dishes were done", "Alex"),
-            new ActivityItemResponse("activity-2", "task_completed", "2026-03-06T21:05:00Z", "Laundry folded", "Jamie"),
-            new ActivityItemResponse("activity-3", "task_added", "2026-03-06T19:45:00Z", "Added weekly plant watering", "Alex"),
-        }));
+    public static async Task<IResult> Handle(TidyNestDbContext dbContext, CancellationToken cancellationToken)
+    {
+		var activities = await dbContext.ActivityItems
+			.AsNoTracking()
+			.OrderByDescending(a => a.TimestampUtc)
+			.Take(20)
+			.Select(a => new ActivityItemResponse(
+				a.Id,
+                a.Type,
+                a.TimestampUtc.ToString("O"),
+                a.Description,
+                a.Actor))
+            .ToListAsync(cancellationToken);
+
+        return Results.Ok(activities);
+    }
 }

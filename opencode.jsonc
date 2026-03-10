@@ -1,13 +1,13 @@
 {
   "$schema": "https://opencode.ai/config.json",
   "agent": {
-    "plan": {
+    "dev/plan": {
       "model": "github-copilot/gpt-5.3-codex"
     },
-    "research": {
+    "dev/research": {
       "model": "github-copilot/gpt-5.3-codex"
     },
-    "implement": {
+    "dev/implement": {
       "model": "github-copilot/gpt-5.3-codex"
     }
   },

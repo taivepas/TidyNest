@@ -47,8 +47,8 @@ function formatDueLabel(isoDate: string): string {
   return `${datePart}, ${timePart}`;
 }
 
-function getRoomName(roomId: string | undefined, rooms: RoomStatus[]): string {
-  if (!roomId) {
+function getRoomName(roomId: number | null, rooms: RoomStatus[]): string {
+  if (roomId == null) {
     return 'Whole home';
   }
 
