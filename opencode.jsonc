@@ -2,17 +2,37 @@
   "$schema": "https://opencode.ai/config.json",
   "agent": {
     "dev/plan": {
+      "description": "Planning agent for analyzing tasks and producing implementation plans.",
       "model": "github-copilot/gpt-5.3-codex"
     },
     "dev/research": {
+      "description": "Research agent for investigating code, docs, and design questions.",
       "model": "github-copilot/gpt-5.3-codex"
     },
     "dev/implement": {
+      "description": "Implementation agent for making code changes.",
       "model": "github-copilot/gpt-5.3-codex"
     }
   },
   "instructions": [
     ".opencode/AGENTS.md",
     "docs/*.md"
-  ]
+  ],
+  "mcp": {
+    "github": {
+      "type": "local",
+      "command": [
+        "npx",
+        "-y",
+        "dotenv-cli",
+        "-e",
+        ".env.local",
+        "--",
+        "npx",
+        "-y",
+        "@modelcontextprotocol/server-github"
+      ],
+      "enabled": true
+    }
+  }
 }
