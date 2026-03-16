@@ -4,8 +4,8 @@
   "workItemId": 2026,
   "branchName": "main",
   "currentPhase": "plan",
-  "transitionMode": "continue-with-guidance",
-  "updatedAtUtc": "2026-03-16T17:40:28.165Z",
+  "transitionMode": "revise-then-continue",
+  "updatedAtUtc": "2026-03-16T17:42:43.342Z",
   "completedPhases": [
     "questions",
     "research",
