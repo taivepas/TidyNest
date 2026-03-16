@@ -7,5 +7,40 @@
   display: flex;
   align-items: stretch;
   justify-content: center;
-  padding: var(--tn-space-6);
+  padding: var(--tn-space-4);
+}
+
+.app-shell__content {
+  width: 100%;
+}
+
+.app-nav {
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+  display: flex;
+  gap: var(--tn-space-2);
+  padding: var(--tn-space-2) var(--tn-space-6);
+}
+
+.app-nav__button {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: #fffaf4;
+  color: var(--tn-text);
+  border-radius: 999px;
+  padding: 0.4rem 0.9rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.app-nav__button--active {
+  background-color: var(--tn-accent);
+  border-color: var(--tn-accent);
+  color: #fff;
+}
+
+@media (max-width: 600px) {
+  .app-nav {
+    padding: var(--tn-space-2) var(--tn-space-4);
+  }
 }

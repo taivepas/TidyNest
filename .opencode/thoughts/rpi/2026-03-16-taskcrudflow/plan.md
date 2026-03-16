@@ -72,7 +72,7 @@ Create and wire a dedicated backend vertical slice for task CRUD with DTO contra
 
 #### Automated
 
-- [ ] `dotnet build TidyNest.slnx`
+- [x] `dotnet build TidyNest.slnx`
 
 #### Manual
 
@@ -119,8 +119,8 @@ Add a dedicated tasks feature area with list/form interactions backed by the new
 
 #### Automated
 
-- [ ] `npm run lint` (from `tidynest.client`)
-- [ ] `npm run build` (from `tidynest.client`)
+- [x] `npm run lint` (from `tidynest.client`)
+- [x] `npm run build` (from `tidynest.client`)
 
 #### Manual
 
@@ -156,9 +156,9 @@ Ensure new tasks flow does not break existing dashboard behavior and finalize ve
 
 #### Automated
 
-- [ ] `dotnet build TidyNest.slnx`
-- [ ] `npm run lint` (from `tidynest.client`)
-- [ ] `npm run build` (from `tidynest.client`)
+- [x] `dotnet build TidyNest.slnx`
+- [x] `npm run lint` (from `tidynest.client`)
+- [x] `npm run build` (from `tidynest.client`)
 
 #### Manual
 

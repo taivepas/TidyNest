@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using TidyNest.Server.Data;
 using TidyNest.Server.Data.Seed;
 using TidyNest.Server.Features.HomeData;
+using TidyNest.Server.Features.Tasks;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -46,6 +47,7 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.MapHomeData();
+app.MapTasks();
 
 app.MapFallbackToFile("/index.html");
 
