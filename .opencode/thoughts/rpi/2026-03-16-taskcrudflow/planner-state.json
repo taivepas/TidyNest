@@ -1,0 +1,19 @@
+{
+  "schema": "implementation-planner/v1",
+  "workflow": "rpi-v2",
+  "workItemId": 2026,
+  "branchName": "main",
+  "currentPhase": "plan",
+  "transitionMode": "continue-with-guidance",
+  "updatedAtUtc": "2026-03-16T17:40:28.165Z",
+  "completedPhases": [
+    "questions",
+    "research",
+    "design",
+    "structure",
+    "plan"
+  ],
+  "stalePhases": [
+    "implement"
+  ]
+}
